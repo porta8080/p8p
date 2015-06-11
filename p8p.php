@@ -40,4 +40,12 @@ function array_insert($a,$b,$index){
     return $ab;
 }
 
+function is_even($a){
+  return $a % 2 == 0;
+}
+
+function is_odd($a){
+  return $a % 2 != 0;
+}
+
 ?>
