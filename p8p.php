@@ -4,7 +4,7 @@ function array_flatten($a){
     $r = array();
 
     foreach($a as $i){
-        if($i !== null) $r[] = $i;
+        if(!is_null($i)) $r[] = $i;
     }
 
     return $r;
@@ -31,6 +31,8 @@ function array_insert($a,$b,$index){
             for($j=0;$j<$_max;$j++){
                 $ab[$i+$j] = $b[$j];
             }
+
+            if(isset($a[$i])) $ab[] = $a[$i];
         }else if(isset($a[$i])){
 			if(isset($ab[$i])) $ab[] = $a[$i];
             else $ab[$i] = $a[$i];
@@ -46,6 +48,16 @@ function is_even($a){
 
 function is_odd($a){
   return $a % 2 != 0;
+}
+  
+function array_select($callback, $a){
+    $r = array();
+
+    foreach($a as $i){
+        if(call_user_func($callback, $i)) $r[] = $i;
+    }
+
+    return $r;
 }
 
 ?>
