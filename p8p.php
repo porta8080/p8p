@@ -4,7 +4,7 @@ function array_flatten($a){
     $r = array();
 
     foreach($a as $i){
-        if($i !== null) $r[] = $i;
+        if(!is_null($i)) $r[] = $i;
     }
 
     return $r;
@@ -38,6 +38,16 @@ function array_insert($a,$b,$index){
     }
 
     return $ab;
+}
+
+function array_select($callback, $a){
+    $r = array();
+
+    foreach($a as $i){
+        if(call_user_func($callback, $i)) $r[] = $i;
+    }
+
+    return $r;
 }
 
 ?>
