@@ -31,6 +31,8 @@ function array_insert($a,$b,$index){
             for($j=0;$j<$_max;$j++){
                 $ab[$i+$j] = $b[$j];
             }
+
+            if(isset($a[$i])) $ab[] = $a[$i];
         }else if(isset($a[$i])){
 			if(isset($ab[$i])) $ab[] = $a[$i];
             else $ab[$i] = $a[$i];
