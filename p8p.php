@@ -60,4 +60,19 @@ function array_select($callback, $a){
     return $r;
 }
 
+function array_random($a,$amount=false){
+  if(!$amount) $amount = 1;
+  $l = count($a);
+  if($amount > $l) $amount = $l;
+  
+  $a_ = array();
+  for($i=0;$i<$amount;$i++){
+    $pos = array_rand($a);
+    $a_[] = array_splice($a,$pos,1);
+  }
+  
+  if($amount == 1) return $a_[0];
+  return $a_;
+}
+
 ?>
