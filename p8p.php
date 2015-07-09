@@ -1,5 +1,19 @@
 <?php
 
+$_RAW = file_get_contents('php://input');
+
+try{
+  $_JSON = json_decode($_RAW,true);
+}catch($e){
+  $_JSON = array();
+}
+
+try{
+  parse_str($_RAW,$_QS);
+}catch($e){
+  $_QS = array();
+}
+
 function array_flatten($a){
     $r = array();
 
